@@ -20,7 +20,7 @@ public class UserController {
         return Observable.just(new User(userId, "박찬욱"));
     }
 
-    @RequestMapping("/user/{userId}/db")
+    @RequestMapping(value = "/user/{userId}", produces = {"application/json"})
     public Observable<User> getUserByDb(@PathVariable String userId) {
         final Observable<User> user = repository.findOne(userId);
         return user;
