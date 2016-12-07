@@ -25,7 +25,7 @@ public class UserRepository {
     }
 
     public Observable<User> findOne(String id) {
-        final Observable<User> user = database.select("SELECT USER_ID, USER_NAME FROM USER WHERE USER_ID = ?")
+        final Observable<User> user = database.select("SELECT USER_ID, USER_NAME FROM USER_M WHERE USER_ID = ?")
                 .parameter(id)
                 .get(rs -> new User(rs.getString(1), rs.getString(2)));
         return user;
